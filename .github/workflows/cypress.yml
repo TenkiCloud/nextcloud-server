@@ -30,7 +30,7 @@ permissions:
 
 jobs:
   init:
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-autoscale
     outputs:
       nodeVersion: ${{ steps.versions.outputs.nodeVersion }}
       npmVersion: ${{ steps.versions.outputs.npmVersion }}
@@ -94,7 +94,7 @@ jobs:
           path: ./
 
   cypress:
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-autoscale
     needs: init
 
     strategy:
@@ -228,7 +228,7 @@ jobs:
           path: data.tar
 
   summary:
-    runs-on: ubuntu-latest
+    runs-on: tenki-standard-autoscale
     needs: [init, cypress]
 
     if: always()
