@@ -30,7 +30,7 @@ permissions:
 
 jobs:
   init:
-    runs-on: tenki-standard-medium-4c-8g
+    runs-on: tenki-standard-large-8c-16g
     outputs:
       nodeVersion: ${{ steps.versions.outputs.nodeVersion }}
       npmVersion: ${{ steps.versions.outputs.npmVersion }}
@@ -94,7 +94,7 @@ jobs:
           path: ./
 
   cypress:
-    runs-on: tenki-standard-medium-4c-8g
+    runs-on: tenki-standard-large-8c-16g
     needs: init
 
     strategy:
@@ -228,7 +228,7 @@ jobs:
           path: data.tar
 
   summary:
-    runs-on: tenki-standard-medium-4c-8g
+    runs-on: tenki-standard-large-8c-16g
     needs: [init, cypress]
 
     if: always()
